@@ -23,6 +23,8 @@ dev_dependencies:
 
   flutter_lints: ^5.0.0
   flutter_native_splash: ^2.4.7
+  lottie: ^3.3.2
+  smooth_page_indicator: ^1.2.1
   
 
 flutter_native_splash:
@@ -48,6 +50,7 @@ flutter:
   assets:
      - assets/images/
      - assets/icons/
+     - assets/animations/
    
 
   # An image asset can refer to one or more resolution-specific "variants", see
