@@ -22,6 +22,20 @@ dev_dependencies:
 
 
   flutter_lints: ^5.0.0
+  flutter_native_splash: ^2.4.7
+  
+
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+
+  color: "#ffffff"
+  color_dark: "#000000"
+
+  image: assets/icons/black_app_logo.png
+  image_dark: assets/icons/white_app_logo.png
+
 
 
 
@@ -34,6 +48,7 @@ flutter:
   assets:
      - assets/images/
      - assets/icons/
+   
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
