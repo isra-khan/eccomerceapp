@@ -1,8 +1,9 @@
 import 'package:eccomerceapp/features/authentication/splash/splash_screen.dart';
+import 'package:eccomerceapp/routes/appapges.dart';
+import 'package:eccomerceapp/routes/routes.dart';
+import 'package:eccomerceapp/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-
-import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,13 +14,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Ecommerce App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
+      initialRoute: Routes.splash,
+      getPages: AppPages.routes,
+      theme: AppThemeConstraint.lightTheme,
       home:
           const SplashScreen(), // ✅ puts SplashScreen inside Directionality + Navigator
     );

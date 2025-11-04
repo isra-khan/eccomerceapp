@@ -8,8 +8,9 @@ import 'package:eccomerceapp/utils/constant/sizes.dart';
 import 'package:eccomerceapp/utils/constant/texts.dart';
 import 'package:eccomerceapp/utils/help/device_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:get/get.dart';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -18,6 +19,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(OnboardingController());
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(
@@ -25,60 +27,83 @@ class OnboardingScreen extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            PageView(
-              controller: controller.pageController,
-              onPageChanged: (value) {
-                controller.updatePageIndicator;
-              },
-              children: [
-                OnboardingWidget(
-                  imagePath: ImagesConstraint.onboarding1Animation,
-                  title: TextsConstraint.onBoardingTitle1,
-                  subTitle: TextsConstraint.onBoardingSubTitle1,
-                ),
-                OnboardingWidget(
-                  imagePath: ImagesConstraint.onboarding2Animation,
-                  title: TextsConstraint.onBoardingTitle2,
-                  subTitle: TextsConstraint.onBoardingSubTitle2,
-                ),
-                OnboardingWidget(
-                  imagePath: ImagesConstraint.onboarding3Animation,
-                  title: TextsConstraint.onBoardingTitle3,
-                  subTitle: TextsConstraint.onBoardingSubTitle3,
-                ),
-              ],
-            ),
-            OnboardingDotnavigation(),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: SizesConstraint.spaceBtwItems,
-              child: CustomElevatedButton(
-                bgColor: ColorsConstraint.primary,
-                onPressed: () {
-                  controller.nextPage();
-                },
-                child: Obx(
-                  () => Text(
-                    controller.currentIndex == 2 ? 'Get Started' : 'Next',
-                    style: TextStyle(color: ColorsConstraint.white),
-                  ),
-                ),
-              ),
-            ),
-
-            Positioned(
-              top: DeviceHelperConstraint.getAppBarHeight(),
-              right: 0,
-              child: TextButton(
-                onPressed: () {
-                  controller.skipPage();
-                },
-                child: Text('Skip'),
-              ),
-            ),
+            _buildPageView(controller),
+            _buildDotNavigation(),
+            _buildNextButton(controller),
+            _buildSkipButton(controller),
           ],
         ),
+      ),
+    );
+  }
+
+  // ───────────────────────────────
+  // 🟢 PAGE VIEW (Main Onboarding Screens)
+  Widget _buildPageView(OnboardingController controller) {
+    return PageView(
+      controller: controller.pageController,
+      onPageChanged: (value) {
+        controller.updatePageIndicator(value);
+      },
+      children: [
+        OnboardingWidget(
+          imagePath: ImagesConstraint.onboarding1Animation,
+          title: TextsConstraint.onBoardingTitle1,
+          subTitle: TextsConstraint.onBoardingSubTitle1,
+        ),
+        OnboardingWidget(
+          imagePath: ImagesConstraint.onboarding2Animation,
+          title: TextsConstraint.onBoardingTitle2,
+          subTitle: TextsConstraint.onBoardingSubTitle2,
+        ),
+        OnboardingWidget(
+          imagePath: ImagesConstraint.onboarding3Animation,
+          title: TextsConstraint.onBoardingTitle3,
+          subTitle: TextsConstraint.onBoardingSubTitle3,
+        ),
+      ],
+    );
+  }
+
+  // ───────────────────────────────
+  // 🟢 DOT NAVIGATION (Indicators)
+  Widget _buildDotNavigation() {
+    return const OnboardingDotnavigation();
+  }
+
+  // ───────────────────────────────
+  // 🟢 NEXT / GET STARTED BUTTON
+  Widget _buildNextButton(OnboardingController controller) {
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: SizesConstraint.spaceBtwItems,
+      child: CustomElevatedButton(
+        bgColor: ColorsConstraint.primary,
+        onPressed: () {
+          controller.nextPage();
+        },
+        child: Obx(
+          () => Text(
+            controller.currentIndex == 2 ? 'Get Started' : 'Next',
+            style: const TextStyle(color: ColorsConstraint.white),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // ───────────────────────────────
+  // 🟢 SKIP BUTTON (Top Right)
+  Widget _buildSkipButton(OnboardingController controller) {
+    return Positioned(
+      top: DeviceHelperConstraint.getAppBarHeight(),
+      right: 0,
+      child: TextButton(
+        onPressed: () {
+          controller.skipPage();
+        },
+        child: const Text('Skip'),
       ),
     );
   }

@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Image.asset(
           isDarkMode

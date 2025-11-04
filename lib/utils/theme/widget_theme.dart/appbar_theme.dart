@@ -11,6 +11,7 @@ class AppBarThemeConstraint {
     scrolledUnderElevation: 0,
     backgroundColor: Colors.transparent,
     surfaceTintColor: Colors.transparent,
+
     iconTheme: IconThemeData(
       color: ColorsConstraint.black,
       size: SizesConstraint.iconMd,

@@ -21,10 +21,10 @@ class CustomElevatedButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          textStyle: MaterialStateProperty.all(
+          textStyle: WidgetStateProperty.all(
             const TextStyle(color: Colors.white),
           ),
-          backgroundColor: MaterialStateProperty.all(bgColor ?? Colors.white),
+          backgroundColor: WidgetStateProperty.all(bgColor ?? Colors.white),
         ),
         child: child,
       ),

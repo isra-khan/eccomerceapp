@@ -7,6 +7,7 @@ class TextFormFieldThemeConstraint {
 
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
     errorMaxLines: 3,
+
     prefixIconColor: ColorsConstraint.darkGrey,
     suffixIconColor: ColorsConstraint.darkGrey,
     labelStyle: const TextStyle().copyWith(
@@ -45,6 +46,7 @@ class TextFormFieldThemeConstraint {
 
   static InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
     errorMaxLines: 2,
+
     prefixIconColor: ColorsConstraint.darkGrey,
     suffixIconColor: ColorsConstraint.darkGrey,
     labelStyle: const TextStyle().copyWith(
@@ -58,6 +60,7 @@ class TextFormFieldThemeConstraint {
     floatingLabelStyle: const TextStyle().copyWith(
       color: ColorsConstraint.white.withValues(alpha: 0.8),
     ),
+
     border: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(SizesConstraint.inputFieldRadius),
       borderSide: const BorderSide(width: 1, color: ColorsConstraint.darkGrey),
@@ -68,7 +71,6 @@ class TextFormFieldThemeConstraint {
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(SizesConstraint.inputFieldRadius),
-      borderSide: const BorderSide(width: 1, color: ColorsConstraint.white),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(SizesConstraint.inputFieldRadius),

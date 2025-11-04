@@ -1,10 +1,9 @@
+import 'package:eccomerceapp/routes/appapges.dart';
+import 'package:eccomerceapp/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class OnboardingController extends GetxController {
   static OnboardingController get instance => Get.find();
@@ -26,6 +25,9 @@ class OnboardingController extends GetxController {
   }
 
   void nextPage() {
+    if (currentIndex == 2) {
+      Get.offAllNamed(Routes.login);
+    }
     if (currentIndex.value < totalPages - 1) {
       final nextPageIndex = currentIndex.value + 1;
 
