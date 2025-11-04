@@ -1,7 +1,6 @@
 import 'package:eccomerceapp/common/style/padding.dart';
 import 'package:eccomerceapp/common/widget/button/elevated_button.dart';
 import 'package:eccomerceapp/common/widget/custom_social_buttons.dart';
-import 'package:eccomerceapp/routes/routes.dart';
 import 'package:eccomerceapp/utils/constant/colors.dart';
 import 'package:eccomerceapp/utils/constant/images.dart';
 import 'package:eccomerceapp/utils/constant/sizes.dart';
@@ -9,10 +8,10 @@ import 'package:eccomerceapp/utils/constant/texts.dart';
 import 'package:eccomerceapp/utils/help/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +28,11 @@ class LoginScreen extends StatelessWidget {
               children: [
                 _buildHeader(context),
                 SizedBox(height: SizesConstraint.spaceBtwSections),
-                _buildFormFields(),
+                _buildNameFields(),
+                SizedBox(height: SizesConstraint.spaceBtwInputFields),
+                _buildContactFields(),
                 SizedBox(height: SizesConstraint.spaceBtwInputFields / 2),
-                _buildRememberMeRow(context),
+                _buildRememberMeRow(),
                 SizedBox(height: SizesConstraint.spaceBtwSections),
                 _buildActionButtons(),
                 SizedBox(height: SizesConstraint.spaceBtwSections),
@@ -47,13 +48,13 @@ class LoginScreen extends StatelessWidget {
   }
 
   // ───────────────────────────────
-  // 🟢 HEADER
+  // 🟢 HEADER SECTION
   Widget _buildHeader(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          TextsConstraint.loginTitle,
+          TextsConstraint.signupTitle,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         SizedBox(height: SizesConstraint.sm),
@@ -66,10 +67,35 @@ class LoginScreen extends StatelessWidget {
   }
 
   // ───────────────────────────────
-  // 🟢 FORM FIELDS
-  Widget _buildFormFields() {
+  // 🟢 NAME INPUT FIELDS
+  Widget _buildNameFields() {
+    return Row(
+      children: [
+        Expanded(
+          child: TextFormField(
+            decoration: const InputDecoration(
+              labelText: 'First Name',
+              prefixIcon: Icon(Iconsax.user),
+            ),
+          ),
+        ),
+        SizedBox(width: SizesConstraint.spaceBtwItems),
+        Expanded(
+          child: TextFormField(
+            decoration: const InputDecoration(
+              labelText: 'Last Name',
+              prefixIcon: Icon(Iconsax.user_edit),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  // ───────────────────────────────
+  // 🟢 CONTACT INPUT FIELDS (Email, Phone, Password)
+  Widget _buildContactFields() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextFormField(
           decoration: const InputDecoration(
@@ -79,6 +105,14 @@ class LoginScreen extends StatelessWidget {
         ),
         SizedBox(height: SizesConstraint.spaceBtwInputFields),
         TextFormField(
+          decoration: const InputDecoration(
+            labelText: 'Phone Number',
+            prefixIcon: Icon(Iconsax.call),
+          ),
+        ),
+        SizedBox(height: SizesConstraint.spaceBtwInputFields),
+        TextFormField(
+          obscureText: true,
           decoration: const InputDecoration(
             labelText: 'Password',
             prefixIcon: Icon(Iconsax.lock),
@@ -90,42 +124,27 @@ class LoginScreen extends StatelessWidget {
   }
 
   // ───────────────────────────────
-  // 🟢 REMEMBER ME + FORGOT PASSWORD ROW
-  Widget _buildRememberMeRow(BuildContext context) {
+  // 🟢 REMEMBER ME ROW
+  Widget _buildRememberMeRow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(
           children: [
-            RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                text: TextsConstraint.iAgreeTo,
-                style: Theme.of(context).textTheme.bodySmall,
-                children: [
-                  TextSpan(
-                    text: TextsConstraint.privacyPolicy,
-                    style: const TextStyle(color: Colors.blue),
-                  ),
-                  TextSpan(
-                    text: TextsConstraint.and,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                  TextSpan(
-                    text: TextsConstraint.termsOfUse,
-                    style: const TextStyle(color: Colors.blue),
-                  ),
-                ],
-              ),
-            ),
+            Checkbox(value: true, onChanged: (value) {}),
+            const Text(TextsConstraint.rememberMe),
           ],
+        ),
+        TextButton(
+          onPressed: () {},
+          child: const Text(TextsConstraint.forgetPassword),
         ),
       ],
     );
   }
 
   // ───────────────────────────────
-  // 🟢 LOGIN & CREATE ACCOUNT BUTTONS
+  // 🟢 ACTION BUTTONS (Sign In & Create Account)
   Widget _buildActionButtons() {
     return Column(
       children: [
@@ -141,13 +160,8 @@ class LoginScreen extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: OutlinedButton(
-            onPressed: () {
-              Get.toNamed(Routes.signup);
-            },
-            child: const Text(
-              TextsConstraint.createAccount,
-              style: TextStyle(color: ColorsConstraint.white),
-            ),
+            onPressed: () {},
+            child: const Text(TextsConstraint.createAccount),
           ),
         ),
       ],
@@ -155,7 +169,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   // ───────────────────────────────
-  // 🟢 DIVIDER WITH "OR SIGN IN WITH"
+  // 🟢 DIVIDER WITH TEXT
   Widget _buildDividerWithText(BuildContext context, bool isDarkMode) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -187,24 +201,20 @@ class LoginScreen extends StatelessWidget {
   }
 
   // ───────────────────────────────
-  // 🟢 SOCIAL LOGIN BUTTONS
+  // 🟢 SOCIAL BUTTONS
   Widget _buildSocialButtons() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomSocialIconButton(
           iconPath: ImagesConstraint.googleIcon,
-          onPressed: () {
-            // Handle Google login
-          },
+          onPressed: () {},
           size: SizesConstraint.iconMd * 2,
         ),
         SizedBox(width: SizesConstraint.spaceBtwItems),
         CustomSocialIconButton(
           iconPath: ImagesConstraint.facebookIcon,
-          onPressed: () {
-            // Handle Facebook login
-          },
+          onPressed: () {},
           size: SizesConstraint.iconMd * 2,
         ),
       ],

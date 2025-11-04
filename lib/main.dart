@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Ecommerce App',
       initialRoute: Routes.splash,
       getPages: AppPages.routes,
+      darkTheme: AppThemeConstraint.darkTheme,
       theme: AppThemeConstraint.lightTheme,
       home:
           const SplashScreen(), // ✅ puts SplashScreen inside Directionality + Navigator

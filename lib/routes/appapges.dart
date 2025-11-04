@@ -1,3 +1,4 @@
+import 'package:eccomerceapp/features/authentication/signup/signup_screen.dart';
 import 'package:eccomerceapp/features/authentication/splash/splash_screen.dart';
 import 'package:eccomerceapp/features/authentication/view/login/login_screen.dart';
 import 'package:eccomerceapp/features/authentication/view/onboarding/onboarding_screen.dart';
@@ -10,5 +11,6 @@ class AppPages {
     GetPage(name: Routes.splash, page: () => const SplashScreen()),
     GetPage(name: Routes.login, page: () => const LoginScreen()),
     GetPage(name: Routes.onboarding, page: () => const OnboardingScreen()),
+    GetPage(name: Routes.signup, page: () => SignupScreen()),
   ];
 }
