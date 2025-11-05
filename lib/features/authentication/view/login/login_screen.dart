@@ -10,6 +10,8 @@ import 'package:eccomerceapp/utils/help/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -31,7 +33,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: SizesConstraint.spaceBtwSections),
                 _buildFormFields(),
                 SizedBox(height: SizesConstraint.spaceBtwInputFields / 2),
-                _buildRememberMeRow(context),
+                _buildRememberMeRow(),
                 SizedBox(height: SizesConstraint.spaceBtwSections),
                 _buildActionButtons(),
                 SizedBox(height: SizesConstraint.spaceBtwSections),
@@ -91,34 +93,21 @@ class LoginScreen extends StatelessWidget {
 
   // ───────────────────────────────
   // 🟢 REMEMBER ME + FORGOT PASSWORD ROW
-  Widget _buildRememberMeRow(BuildContext context) {
+  Widget _buildRememberMeRow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(
           children: [
-            RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                text: TextsConstraint.iAgreeTo,
-                style: Theme.of(context).textTheme.bodySmall,
-                children: [
-                  TextSpan(
-                    text: TextsConstraint.privacyPolicy,
-                    style: const TextStyle(color: Colors.blue),
-                  ),
-                  TextSpan(
-                    text: TextsConstraint.and,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                  TextSpan(
-                    text: TextsConstraint.termsOfUse,
-                    style: const TextStyle(color: Colors.blue),
-                  ),
-                ],
-              ),
-            ),
+            Checkbox(value: true, onChanged: (value) {}),
+            Text(TextsConstraint.rememberMe),
           ],
+        ),
+        TextButton(
+          onPressed: () {
+            Get.toNamed(Routes.forgetPassword);
+          },
+          child: Text(TextsConstraint.forgetPassword),
         ),
       ],
     );

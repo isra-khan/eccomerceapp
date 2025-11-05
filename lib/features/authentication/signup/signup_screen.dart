@@ -32,7 +32,42 @@ class SignupScreen extends StatelessWidget {
                 SizedBox(height: SizesConstraint.spaceBtwInputFields),
                 _buildContactFields(),
                 SizedBox(height: SizesConstraint.spaceBtwInputFields / 2),
-                _buildRememberMeRow(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Checkbox(value: true, onChanged: (value) {}),
+                    RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: TextsConstraint.iAgreeTo + " ",
+                        style: Theme.of(context).textTheme.bodyMedium,
+                        children: [
+                          TextSpan(
+                            text: TextsConstraint.privacyPolicy + " ",
+                            style: const TextStyle(
+                              color: ColorsConstraint.primary,
+                              decoration: TextDecoration.none,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          TextSpan(
+                            text: TextsConstraint.and + " ",
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          TextSpan(
+                            text: TextsConstraint.termsOfUse,
+                            style: const TextStyle(
+                              color: ColorsConstraint.primary,
+                              decoration: TextDecoration.none,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+
                 SizedBox(height: SizesConstraint.spaceBtwSections),
                 _buildActionButtons(),
                 SizedBox(height: SizesConstraint.spaceBtwSections),
@@ -124,26 +159,6 @@ class SignupScreen extends StatelessWidget {
   }
 
   // ───────────────────────────────
-  // 🟢 REMEMBER ME ROW
-  Widget _buildRememberMeRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            Checkbox(value: true, onChanged: (value) {}),
-            const Text(TextsConstraint.rememberMe),
-          ],
-        ),
-        TextButton(
-          onPressed: () {},
-          child: const Text(TextsConstraint.forgetPassword),
-        ),
-      ],
-    );
-  }
-
-  // ───────────────────────────────
   // 🟢 ACTION BUTTONS (Sign In & Create Account)
   Widget _buildActionButtons() {
     return Column(
@@ -152,16 +167,8 @@ class SignupScreen extends StatelessWidget {
           bgColor: ColorsConstraint.primary,
           onPressed: () {},
           child: const Text(
-            TextsConstraint.signIn,
+            TextsConstraint.createAccount,
             style: TextStyle(color: ColorsConstraint.white),
-          ),
-        ),
-        SizedBox(height: SizesConstraint.spaceBtwItems / 2),
-        SizedBox(
-          width: double.infinity,
-          child: OutlinedButton(
-            onPressed: () {},
-            child: const Text(TextsConstraint.createAccount),
           ),
         ),
       ],
