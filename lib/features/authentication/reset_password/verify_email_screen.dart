@@ -1,6 +1,8 @@
+import 'package:eccomerceapp/common/screen/success_screen.dart';
 import 'package:eccomerceapp/common/style/padding.dart';
 import 'package:eccomerceapp/common/widget/button/elevated_button.dart';
 import 'package:eccomerceapp/features/authentication/view/login/login_screen.dart';
+import 'package:eccomerceapp/routes/routes.dart';
 import 'package:eccomerceapp/utils/constant/colors.dart';
 import 'package:eccomerceapp/utils/constant/images.dart';
 import 'package:eccomerceapp/utils/constant/sizes.dart';
@@ -10,8 +12,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({super.key});
+class VerifyEmailScreen extends StatelessWidget {
+  const VerifyEmailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +31,16 @@ class ResetPasswordScreen extends StatelessWidget {
         child: Padding(
           padding: PaddingConstraint.screenPadding,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.asset(
                 ImagesConstraint.mailSentImage,
-                height: DeviceHelperConstraint.getScreenHeight(context) * 0.6,
+                height: DeviceHelperConstraint.getScreenHeight(context) * 0.4,
               ),
-              SizedBox(height: SizesConstraint.spaceBtwItems),
+
               Text(
-                TextsConstraint.resetPasswordTitle,
-                style: Theme.of(context).textTheme.bodyMedium,
+                TextsConstraint.verifyEmailTitle,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               SizedBox(height: SizesConstraint.spaceBtwItems),
               Text(
@@ -46,15 +49,28 @@ class ResetPasswordScreen extends StatelessWidget {
               ),
               SizedBox(height: SizesConstraint.spaceBtwItems),
               Text(
-                TextsConstraint.resetPasswordSubTitle,
+                TextsConstraint.verifyEmailSubTitle,
                 style: Theme.of(context).textTheme.bodySmall,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: SizesConstraint.spaceBtwSections),
               CustomElevatedButton(
                 bgColor: ColorsConstraint.primary,
-                onPressed: () {},
-                child: Text(TextsConstraint.done),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SuccessScreen(
+                        title: TextsConstraint.accountCreatedTitle,
+                        subtitle: TextsConstraint.accountCreatedSubTitle,
+                        buttonText: TextsConstraint.uContinue,
+                        imagePath: ImagesConstraint.accountCreatedImage,
+                        onPressed: () {},
+                      ),
+                    ),
+                  );
+                },
+                child: Text(TextsConstraint.uContinue),
               ),
               SizedBox(
                 width: double.infinity,

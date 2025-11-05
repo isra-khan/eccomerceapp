@@ -1,4 +1,4 @@
-import 'package:eccomerceapp/routes/appapges.dart';
+import 'package:eccomerceapp/routes/apppages.dart';
 import 'package:eccomerceapp/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';

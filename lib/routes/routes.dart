@@ -5,4 +5,6 @@ class Routes {
   static const onboarding = '/onboarding';
   static const forgetPassword = '/forgetPassword';
   static const resetPassword = '/resetPassword';
+  static const verifyEmail = "/verifyEmail";
+  static const success = '/success';
 }

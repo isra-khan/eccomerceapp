@@ -1,6 +1,7 @@
 import 'package:eccomerceapp/common/style/padding.dart';
 import 'package:eccomerceapp/common/widget/button/elevated_button.dart';
 import 'package:eccomerceapp/common/widget/custom_social_buttons.dart';
+import 'package:eccomerceapp/routes/routes.dart';
 import 'package:eccomerceapp/utils/constant/colors.dart';
 import 'package:eccomerceapp/utils/constant/images.dart';
 import 'package:eccomerceapp/utils/constant/sizes.dart';
@@ -9,6 +10,7 @@ import 'package:eccomerceapp/utils/help/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -165,7 +167,9 @@ class SignupScreen extends StatelessWidget {
       children: [
         CustomElevatedButton(
           bgColor: ColorsConstraint.primary,
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed(Routes.verifyEmail);
+          },
           child: const Text(
             TextsConstraint.createAccount,
             style: TextStyle(color: ColorsConstraint.white),

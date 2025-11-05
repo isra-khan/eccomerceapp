@@ -35,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: SizesConstraint.spaceBtwInputFields / 2),
                 _buildRememberMeRow(),
                 SizedBox(height: SizesConstraint.spaceBtwSections),
-                _buildActionButtons(),
+                _buildActionButtons(isDarkMode),
                 SizedBox(height: SizesConstraint.spaceBtwSections),
                 _buildDividerWithText(context, isDarkMode),
                 SizedBox(height: SizesConstraint.spaceBtwSections),
@@ -115,7 +115,7 @@ class LoginScreen extends StatelessWidget {
 
   // ───────────────────────────────
   // 🟢 LOGIN & CREATE ACCOUNT BUTTONS
-  Widget _buildActionButtons() {
+  Widget _buildActionButtons(bool isDarkMode) {
     return Column(
       children: [
         CustomElevatedButton(
@@ -133,9 +133,13 @@ class LoginScreen extends StatelessWidget {
             onPressed: () {
               Get.toNamed(Routes.signup);
             },
-            child: const Text(
+            child: Text(
               TextsConstraint.createAccount,
-              style: TextStyle(color: ColorsConstraint.white),
+              style: TextStyle(
+                color: isDarkMode
+                    ? ColorsConstraint.white
+                    : ColorsConstraint.primary,
+              ),
             ),
           ),
         ),

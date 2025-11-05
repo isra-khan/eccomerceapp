@@ -1,5 +1,5 @@
 import 'package:eccomerceapp/features/authentication/splash/splash_screen.dart';
-import 'package:eccomerceapp/routes/appapges.dart';
+import 'package:eccomerceapp/routes/apppages.dart';
 import 'package:eccomerceapp/routes/routes.dart';
 import 'package:eccomerceapp/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
