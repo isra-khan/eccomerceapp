@@ -6,6 +6,7 @@ import 'package:eccomerceapp/features/authentication/signup/signup_screen.dart';
 import 'package:eccomerceapp/features/authentication/splash/splash_screen.dart';
 import 'package:eccomerceapp/features/authentication/view/login/login_screen.dart';
 import 'package:eccomerceapp/features/authentication/view/onboarding/onboarding_screen.dart';
+import 'package:eccomerceapp/navigation_menu.dart';
 import 'package:eccomerceapp/routes/routes.dart';
 import 'package:eccomerceapp/utils/constant/images.dart';
 import 'package:eccomerceapp/utils/constant/texts.dart';
@@ -21,5 +22,6 @@ class AppPages {
     GetPage(name: Routes.forgetPassword, page: () => ForgetPasswordScreen()),
     GetPage(name: Routes.resetPassword, page: () => ResetPasswordScreen()),
     GetPage(name: Routes.verifyEmail, page: () => VerifyEmailScreen()),
+    GetPage(name: Routes.home, page: () => NavigationMenu()),
   ];
 }

@@ -76,22 +76,22 @@ class LoginScreen extends StatelessWidget {
         TextFormField(
           decoration: const InputDecoration(
             labelText: 'Email',
-            prefixIcon: Icon(Iconsax.direct_right),
+            prefixIcon: Icon(Icons.email),
           ),
         ),
         SizedBox(height: SizesConstraint.spaceBtwInputFields),
         TextFormField(
           decoration: const InputDecoration(
             labelText: 'Password',
-            prefixIcon: Icon(Iconsax.lock),
-            suffixIcon: Icon(Iconsax.eye),
+            prefixIcon: Icon(Icons.lock),
+            suffixIcon: Icon(Icons.visibility),
           ),
         ),
       ],
     );
   }
 
-  // ───────────────────────────────
+  //
   // 🟢 REMEMBER ME + FORGOT PASSWORD ROW
   Widget _buildRememberMeRow() {
     return Row(
@@ -105,7 +105,7 @@ class LoginScreen extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Get.toNamed(Routes.forgetPassword);
+            Get.offAllNamed(Routes.forgetPassword);
           },
           child: Text(TextsConstraint.forgetPassword),
         ),
@@ -120,7 +120,9 @@ class LoginScreen extends StatelessWidget {
       children: [
         CustomElevatedButton(
           bgColor: ColorsConstraint.primary,
-          onPressed: () {},
+          onPressed: () {
+            Get.offAllNamed(Routes.home);
+          },
           child: const Text(
             TextsConstraint.signIn,
             style: TextStyle(color: ColorsConstraint.white),

@@ -7,4 +7,5 @@ class Routes {
   static const resetPassword = '/resetPassword';
   static const verifyEmail = "/verifyEmail";
   static const success = '/success';
+  static const home = '/home';
 }

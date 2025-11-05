@@ -112,7 +112,7 @@ class SignupScreen extends StatelessWidget {
           child: TextFormField(
             decoration: const InputDecoration(
               labelText: 'First Name',
-              prefixIcon: Icon(Iconsax.user),
+              prefixIcon: Icon(Icons.person),
             ),
           ),
         ),
@@ -121,7 +121,7 @@ class SignupScreen extends StatelessWidget {
           child: TextFormField(
             decoration: const InputDecoration(
               labelText: 'Last Name',
-              prefixIcon: Icon(Iconsax.user_edit),
+              prefixIcon: Icon(Icons.person),
             ),
           ),
         ),
@@ -137,14 +137,14 @@ class SignupScreen extends StatelessWidget {
         TextFormField(
           decoration: const InputDecoration(
             labelText: 'Email',
-            prefixIcon: Icon(Iconsax.direct_right),
+            prefixIcon: Icon(Icons.email),
           ),
         ),
         SizedBox(height: SizesConstraint.spaceBtwInputFields),
         TextFormField(
           decoration: const InputDecoration(
             labelText: 'Phone Number',
-            prefixIcon: Icon(Iconsax.call),
+            prefixIcon: Icon(Icons.call),
           ),
         ),
         SizedBox(height: SizesConstraint.spaceBtwInputFields),
@@ -152,8 +152,8 @@ class SignupScreen extends StatelessWidget {
           obscureText: true,
           decoration: const InputDecoration(
             labelText: 'Password',
-            prefixIcon: Icon(Iconsax.lock),
-            suffixIcon: Icon(Iconsax.eye),
+            prefixIcon: Icon(Icons.lock),
+            suffixIcon: Icon(Icons.visibility),
           ),
         ),
       ],
