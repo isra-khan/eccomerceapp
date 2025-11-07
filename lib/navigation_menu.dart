@@ -1,3 +1,5 @@
+import 'package:eccomerceapp/features/authentication/view/brand_screen/brand_screen.dart';
+import 'package:eccomerceapp/features/home/home_screen.dart';
 import 'package:eccomerceapp/utils/constant/colors.dart';
 import 'package:eccomerceapp/utils/help/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +7,8 @@ import 'package:get/get.dart';
 
 class NavigationMenu extends StatelessWidget {
   final navigationController = Get.put(NavigationController());
+
+  NavigationMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +50,8 @@ class NavigationController extends GetxController {
   }
 
   List<Widget> screens = [
-    Center(child: Text('Home Screen')),
-    Center(child: Text('Store Screen')),
+    Center(child: HomeScreen()),
+    Center(child: BrandStoreScreen()),
     Center(child: Text('Wishlist Screen')),
     Center(child: Text('Profile Screen')),
   ];

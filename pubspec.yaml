@@ -28,6 +28,8 @@ dev_dependencies:
   smooth_page_indicator: ^1.2.1
   get: ^4.7.2
   iconsax: ^0.0.8
+  carousel_slider: ^5.1.1
+  provider:
   
   
 
@@ -56,6 +58,10 @@ flutter:
      - assets/icons/
      - assets/animations/
      - assets/logo/
+     - assets/icons/categories/
+     - assets/banners/
+     - assets/products/
+
    
 
   # An image asset can refer to one or more resolution-specific "variants", see

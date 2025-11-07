@@ -10,9 +10,6 @@ import 'package:eccomerceapp/utils/help/device_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 

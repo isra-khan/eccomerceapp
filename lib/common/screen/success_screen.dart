@@ -2,7 +2,6 @@ import 'package:eccomerceapp/common/style/padding.dart';
 import 'package:eccomerceapp/common/widget/button/elevated_button.dart';
 
 import 'package:eccomerceapp/utils/constant/colors.dart';
-import 'package:eccomerceapp/utils/constant/images.dart';
 import 'package:eccomerceapp/utils/constant/sizes.dart';
 import 'package:eccomerceapp/utils/help/device_helper.dart';
 import 'package:eccomerceapp/utils/help/helper_functions.dart';

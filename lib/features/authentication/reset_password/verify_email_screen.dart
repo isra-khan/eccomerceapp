@@ -2,7 +2,6 @@ import 'package:eccomerceapp/common/screen/success_screen.dart';
 import 'package:eccomerceapp/common/style/padding.dart';
 import 'package:eccomerceapp/common/widget/button/elevated_button.dart';
 import 'package:eccomerceapp/features/authentication/view/login/login_screen.dart';
-import 'package:eccomerceapp/routes/routes.dart';
 import 'package:eccomerceapp/utils/constant/colors.dart';
 import 'package:eccomerceapp/utils/constant/images.dart';
 import 'package:eccomerceapp/utils/constant/sizes.dart';

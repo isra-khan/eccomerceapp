@@ -41,11 +41,11 @@ class SignupScreen extends StatelessWidget {
                     RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
-                        text: TextsConstraint.iAgreeTo + " ",
+                        text: "${TextsConstraint.iAgreeTo} ",
                         style: Theme.of(context).textTheme.bodyMedium,
                         children: [
                           TextSpan(
-                            text: TextsConstraint.privacyPolicy + " ",
+                            text: "${TextsConstraint.privacyPolicy} ",
                             style: const TextStyle(
                               color: ColorsConstraint.primary,
                               decoration: TextDecoration.none,
@@ -53,7 +53,7 @@ class SignupScreen extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: TextsConstraint.and + " ",
+                            text: "${TextsConstraint.and} ",
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                           TextSpan(
